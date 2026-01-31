@@ -1,11 +1,11 @@
-# Concept: Safe SSH logins using SSH certificates and host-scoped SSH principals
+# Concept: Safe Just-In-Time (JIT) SSH access with dual-control enforcement using SSH certificates and host-scoped SSH principals
 
 ## Goals
-- Users cannot use a cert on a host unless that host has approved them
-- Approval happens on the host itself
-- For simplicity, same user CA can be used everywhere
-- Malicious clients gain nothing
-- No cert is ever “bound” to a host — instead the host binds itself to the cert
+- Users cannot use a cert on a host unless that host has enabled them
+- Users explicitly enable access ahead of time (on the host)
+- Same user CA can be used everywhere (for simplicity)
+- Both sides can independently control the allowed login time
+- Access automatically expires
 
 ## Prerequisites
 
@@ -25,10 +25,7 @@ alice@web01
 bob@host123
 ```
 
-## Policies
+**sudo rule for all users that are allowed to enable logins**
 
-### [Time-limited approvals (host-enforced TTL)](src/time-based/bin/main.rs)
+`%ssh-login-enablers ALL=(root) NOPASSWD: /usr/local/bin/ssh-enable-login *`
 
-**Policy idea**
-
-`“Alice may log in to this host for the next 2 hours.”`
