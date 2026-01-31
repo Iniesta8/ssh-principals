@@ -4,11 +4,13 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+filetime = "0.2.27"
+hostname = "0.4.2"
 
 [[bin]]
-name = "basic-ssh-principals"
-path = "src/basic/bin/main.rs"
+name = "ssh-enable-login"
+path = "src/bin/ssh-enable-login.rs"
 
 [[bin]]
-name = "time-based-ssh-principals"
-path = "src/time-based/bin/main.rs"
+name = "ssh-principals"
+path = "src/bin/ssh-principals.rs"
