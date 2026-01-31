@@ -27,5 +27,5 @@ bob@host123
 
 **sudo rule for all users that are allowed to enable logins**
 
-`%ssh-login-enablers ALL=(root) NOPASSWD: /usr/local/bin/ssh-enable-login *`
+`%ssh-login-enablers ALL=(root) NOPASSWD: /usr/local/bin/ssh-enable-login 0-9][0-9]*[mh]`
 
