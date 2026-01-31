@@ -1,0 +1,16 @@
+[package]
+name = "ssh-principals"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+filetime = "0.2.27"
+hostname = "0.4.2"
+
+[[bin]]
+name = "ssh-enable-login"
+path = "src/bin/ssh-enable-login.rs"
+
+[[bin]]
+name = "ssh-principals"
+path = "src/bin/ssh-principals.rs"
