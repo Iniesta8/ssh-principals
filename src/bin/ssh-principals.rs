@@ -7,7 +7,12 @@ fn main() {
     }
 
     let user = &args[1];
-    let host = &args[2];
+
+    let host = match hostname::get() {
+        Ok(h) => h.into_string().unwrap(),
+        Err(_) => return,
+    };
+
     let principal = format!("{}@{}", user, host);
 
     let path = Path::new("/var/lib/ssh-principals/enabled").join(&principal);

@@ -14,7 +14,7 @@
 ```
 TrustedUserCAKeys /etc/ssh/user_ca.pub
 
-AuthorizedPrincipalsCommand /usr/libexec/ssh-principals %u %h
+AuthorizedPrincipalsCommand /usr/libexec/ssh-principals %u
 AuthorizedPrincipalsCommandUser ssh-principals
 ```
 
@@ -27,5 +27,5 @@ bob@host123
 
 **sudo rule for all users that are allowed to enable logins**
 
-`%ssh-login-enablers ALL=(root) NOPASSWD: /usr/local/bin/ssh-enable-login 0-9][0-9]*[mh]`
+`%ssh-login-enablers ALL=(root) NOPASSWD: /usr/local/bin/ssh-enable-login [0-9]+[0-9]*[mh]`
 
